@@ -453,3 +453,24 @@ details[open] summary { margin-bottom: 10px; }
   .site-header.is-scrolled .inline-nav,
   .site-header.is-scrolled .nav-phone { display: none; }
 }
+
+/* Community section — match original light card */
+.lede-gray { color: var(--muted); font-size: clamp(17px, 1.4vw, 20px); }
+.stat-card { background: var(--white); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(20, 23, 31, .10); }
+.stat-card .stat { color: var(--navy); }
+.stat-card .stat .per { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; color: var(--copper); letter-spacing: .02em; }
+.stat-card p { color: var(--muted); }
+.stat-rows li { border-top: 1px solid var(--line); font-weight: 500; color: var(--ink); align-items: center; }
+.stat-rows li::before { content: none; }
+.stat-rows svg { width: 20px; height: 20px; flex: none; stroke: var(--copper); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.note { font-family: "Space Mono", ui-monospace, monospace; font-size: 13px; color: var(--muted); }
+
+/* Scrolled header — original turns light (85% surface + blur), navy text */
+.site-header.is-scrolled { background: rgba(255, 255, 255, .9); box-shadow: 0 2px 14px rgba(20, 23, 31, .12); }
+.site-header.is-scrolled .inline-nav a, .site-header.is-scrolled .nav-phone { color: var(--navy); }
+.site-header.is-scrolled .menu-btn { color: var(--navy); border-color: var(--navy); }
+.site-header.is-scrolled .menu-btn:hover { background: rgba(30, 44, 110, .08); }
+.site-header.is-scrolled .btn-nav { background: var(--navy); color: var(--white); }
+.logo .wordmark-color { display: none; }
+.site-header.is-scrolled .logo .wordmark { display: none; }
+.site-header.is-scrolled .logo .wordmark-color { display: inline-block; }
