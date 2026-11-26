@@ -22,7 +22,19 @@
   var header = document.querySelector(".site-header");
   if (header) {
     var onScroll = function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 24);
+      var scrolled = window.scrollY > 24;
+      header.classList.toggle("is-scrolled", scrolled);
+      // Desktop: Menu tab only exists once scrolled — if the panel is
+      // open and the header returns to its top state, close the panel
+      // so it never sits open without its toggle.
+      if (!scrolled && menuPanel && menuPanel.classList.contains("open") &&
+          window.matchMedia("(min-width: 1100px)").matches) {
+        menuPanel.classList.remove("open");
+        if (menuBtn) {
+          menuBtn.setAttribute("aria-expanded", "false");
+          menuBtn.setAttribute("aria-label", "Open menu");
+        }
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
