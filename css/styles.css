@@ -401,3 +401,24 @@ input:focus, select:focus, textarea:focus { outline: 3px solid var(--sky); outli
   .hero-eyebrow { letter-spacing: .1em; }
   .hero { padding-top: calc(var(--header-h) + 36px); }
 }
+
+/* ---------- Visual cues: hover/focus/active states ---------- */
+a, button, summary, input, select, textarea { transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+:focus-visible { outline: 3px solid var(--splash); outline-offset: 2px; border-radius: 4px; }
+.btn:focus-visible, .menu-btn:focus-visible, .quick-actions a:focus-visible { outline-color: var(--copper-bright); }
+.btn:active { transform: translateY(1px); }
+.card { transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(30,44,110,.13); }
+.icon-col .icon { transition: transform .25s ease, border-color .25s ease; }
+.icon-col:hover .icon { transform: translateY(-3px); border-color: var(--copper-bright); }
+.menu-panel a:active { color: var(--copper-bright); }
+.foot-links a:hover { color: var(--white); }
+details summary:hover { color: var(--copper-strong); }
+details[open] summary { margin-bottom: 10px; }
+.gallery img { transition: transform .3s ease; }
+.gallery img:hover { transform: scale(1.02); }
+.quick-actions a:active { background: var(--navy-deep); }
+@media (prefers-reduced-motion: reduce) {
+  a, button, summary, input, select, textarea, .card, .icon-col .icon, .gallery img { transition: none; }
+  .card:hover, .icon-col:hover .icon, .gallery img:hover, .btn:active { transform: none; }
+}
