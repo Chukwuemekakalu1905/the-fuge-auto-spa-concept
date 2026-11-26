@@ -77,3 +77,12 @@ Plain HTML/CSS/JS, no build step:
 
 To preview locally: `python3 -m http.server 8000` in this directory,
 then open http://localhost:8000.
+
+## Design
+
+The demo deliberately keeps the original site's design language and imagery
+(navy/copper palette, Poppins/Inter/Space Mono, same section order and
+photos — sources in `assets/SOURCES.md`) so the comparison is apples to
+apples: same look, rebuilt underneath. Pages correspond to the original's
+page set (home, services, express wash, detailing, book, reviews, about,
+FAQ, fleet, contact) plus a memberships page the original lacks.
