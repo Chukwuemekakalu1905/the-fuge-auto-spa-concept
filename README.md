@@ -20,8 +20,8 @@ Built to show what a rebuilt site looks like when the basics are done right:
   with a link to the live listing instead of cherry-picked quotes.
 - **One address, one phone number**, everywhere: 615 West Ray Road,
   Suite A, Gilbert, AZ 85233 · 480-299-5771.
-- **Solid header, visible hero, no cookie banner** over the buttons.
-  No cookies are set at all.
+- **Header that never covers content, visible hero, no cookie banner**
+  over the buttons. No cookies are set at all.
 
 ## Security posture (GitHub Pages, no custom domain)
 
@@ -36,7 +36,9 @@ This demo is built to the tightest standard GitHub Pages allows:
 - **Zero third-party resources**: no analytics, no maps embed, no
   external fonts, no CDNs. Booking, directions, and reviews are plain
   outbound links with `rel="noopener noreferrer"`.
-- Subresource Integrity (sha384) on the stylesheet and script tags.
+- No Subresource Integrity attributes (removed deliberately: on
+  GitHub Pages they caused stale-cache stylesheet rejection during
+  deploys; the strict CSP already restricts everything to same-origin).
 - Referrer-Policy meta: `strict-origin-when-cross-origin`.
 - Real `404.html` (GitHub Pages serves it with a 404 status) instead of
   a soft-404 catch-all.
@@ -71,6 +73,7 @@ Plain HTML/CSS/JS, no build step:
 - `book.html` — booking + quote form
 - `contact.html` — contact + quote form
 - `reviews.html` — honest review aggregate
+- `car-care-tips.html`, `privacy.html`, `terms.html`
 - `404.html` — real not-found page
 - `css/styles.css`, `js/main.js` — the only stylesheet and script
 - `robots.txt`, `sitemap.xml`, `.well-known/security.txt`, `.nojekyll`
@@ -85,4 +88,25 @@ The demo deliberately keeps the original site's design language and imagery
 photos — sources in `assets/SOURCES.md`) so the comparison is apples to
 apples: same look, rebuilt underneath. Pages correspond to the original's
 page set (home, services, express wash, detailing, book, reviews, about,
-FAQ, fleet, contact) plus a memberships page the original lacks.
+FAQ, fleet, contact, car care tips, privacy, terms) plus a memberships
+page the original lacks. The header follows the original's model (slim,
+transparent over the hero, hamburger menu, sticky bottom Call/Directions
+bar on mobile) with one fix: it turns solid on scroll and the hero
+carries its own top padding, so the header never covers hero content.
+
+### Deliberate deviations from the original
+
+- **No Google Maps embed.** The original embeds a third-party map iframe
+  in the Visit section. The demo keeps the same visual slot but uses a
+  static styled panel (address, hours, rating) with an outbound
+  directions link — zero third-party resources is a hard rule here.
+- **Honest review aggregate.** The original's reviews section implies a
+  perfect score; the demo keeps the original's four review cards and
+  layout but states the real aggregate (~4.4 stars, ~40 Google reviews)
+  with a link to the live listing.
+- **No entrance animation.** The original animates hero content in,
+  which can leave the headline invisible if anything fails. The demo
+  renders all content immediately; nothing depends on animation or JS
+  to be visible.
+- **No cookie banner.** The demo sets no cookies, so there is nothing
+  to consent to.

@@ -14,21 +14,28 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="logo" href="index.html"><img src="assets/img/mark.png" alt="" width="44" height="32"><img class="wordmark" src="assets/img/wordmark-white.png" alt="The Fuge Auto Spa" width="170" height="42"></a>
-    <nav class="main-nav" aria-label="Main">
-        <a href="services.html">Services</a>
-        <a href="express-wash.html">Express Wash</a>
-        <a href="detailing.html">Detailing</a>
-        <a href="memberships.html">Memberships</a>
-        <a href="fleet.html">Fleet & Corporate</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+    <a class="logo" href="index.html"><img class="mark" src="assets/img/mark.png" alt="" width="44" height="32"><img class="wordmark" src="assets/img/wordmark-white.png" alt="The Fuge Auto Spa" width="170" height="42"></a>
     <div class="nav-actions">
-      <a class="nav-call" href="tel:+14802995771">480-299-5771</a>
-      <a class="btn btn-copper" href="book.html">Book a Detail</a>
+      <a class="btn btn-copper btn-nav" href="book.html">Book a Detail</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu"><span class="bars"><span></span><span></span><span></span></span>Menu</button>
+    </div>
+  </div>
+  <div class="menu-panel" id="menu-panel">
+    <div class="wrap">
+      <nav aria-label="Main">
+        <a href="services.html">Services &amp; Pricing</a>
+        <a href="express-wash.html">Express Wash</a>
+        <a href="detailing.html">Hand Detailing</a>
+        <a href="memberships.html">Memberships</a>
+        <a href="fleet.html">Fleet &amp; Corporate</a>
+        <a href="book.html">Book Online</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About Us</a>
+        <a href="car-care-tips.html">Car Care Tips</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Location &amp; Contact</a>
+        <a class="menu-call" href="tel:+14802995771">Call 480-299-5771</a>
+      </nav>
     </div>
   </div>
 </header>
@@ -55,15 +62,32 @@
       <form id="quote-form" action="mailto:thefugeautospa@gmail.com" method="post" enctype="text/plain">
       <div class="field"><label for="f-name">Name *</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-phone">Phone *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
-      <div class="field"><label for="f-service">Service</label>
-        <select id="f-service" name="service">
-          <option>Signature Interior Detail — $150</option>
-          <option>Signature Exterior Detail — $200</option>
-          <option>Signature Interior &amp; Exterior — $400</option>
-          <option>Platinum Detail — $800</option>
-          <option>Express wash question</option>
-          <option>Membership question</option>
+      <div class="field"><label for="f-email">Email (optional)</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+      <fieldset>
+        <legend class="group-label">Your vehicle</legend>
+        <div class="field-row">
+          <div class="field"><label for="f-year">Year</label><input id="f-year" name="year" type="text" inputmode="numeric" autocomplete="off"></div>
+          <div class="field"><label for="f-make">Make</label><input id="f-make" name="make" type="text" autocomplete="off"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="f-model">Model</label><input id="f-model" name="model" type="text" autocomplete="off"></div>
+          <div class="field"><label for="f-type">Type (opt.)</label>
+            <select id="f-type" name="type">
+              <option value="">Select</option>
+              <option>Sedan</option>
+              <option>SUV</option>
+              <option>Truck</option>
+              <option>Van</option>
+              <option>Other</option>
+            </select></div>
+        </div>
+      </fieldset>
+      <div class="field"><label for="f-topic">Topic</label>
+        <select id="f-topic" name="topic">
+          <option>Detail quote</option>
+          <option>Wash question</option>
           <option>Fleet &amp; corporate</option>
+          <option>Community partnership</option>
           <option>Other</option>
         </select></div>
       <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message" rows="4"></textarea></div>
@@ -89,11 +113,11 @@
           <li><a href="services.html">Services &amp; Pricing</a></li>
           <li><a href="express-wash.html">Express Wash</a></li>
           <li><a href="detailing.html">Hand Detailing</a></li>
-          <li><a href="memberships.html">Memberships</a></li>
           <li><a href="fleet.html">Fleet &amp; Corporate</a></li>
           <li><a href="book.html">Book Online</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="car-care-tips.html">Car Care Tips</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Location &amp; Contact</a></li>
         </ul>
@@ -106,9 +130,14 @@
       </div>
     </div>
     <p class="concept-note"><strong>Concept demo:</strong> this is an unsolicited redesign concept created to show what a rebuilt site could look like. It is not the official website of The Fuge Auto Spa, and prices shown are the business's published prices at the time of the concept. The official site is <a href="https://www.thefugeautospa.com" rel="noopener noreferrer">thefugeautospa.com</a>.</p>
-    <p class="fineprint">© 2026 The Fuge Auto Spa · Gilbert &amp; Chandler, Arizona · <a href="#top">Back to top</a></p>
+    <p class="fineprint">© 2026 The Fuge Auto Spa · Gilbert &amp; Chandler, Arizona · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="#top">Back to top</a></p>
   </div>
 </footer>
+<div class="quick-actions">
+  <a href="tel:+14802995771">Call</a>
+  <span class="qa-divider" aria-hidden="true"></span>
+  <a href="https://www.google.com/maps/search/?api=1&query=The%20Fuge%20Auto%20Spa%2C%20615%20W%20Ray%20Rd%20Suite%20A%2C%20Gilbert%2C%20AZ%2085233" rel="noopener noreferrer">Directions</a>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>
