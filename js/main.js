@@ -112,3 +112,23 @@
     window.location.href = href;
   });
 })();
+
+/* Scroll reveal — same treatment the original applies via data-reveal.
+   Opt-in only: if JS or IntersectionObserver is unavailable, or the
+   visitor prefers reduced motion, content simply stays visible. */
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var els = document.querySelectorAll("[data-reveal]");
+  if (!els.length) return;
+  document.documentElement.classList.add("js-reveal");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add("revealed");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  els.forEach(function (el) { io.observe(el); });
+})();
