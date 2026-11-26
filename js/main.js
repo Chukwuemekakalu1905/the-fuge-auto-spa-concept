@@ -28,7 +28,43 @@
     onScroll();
   }
 
-  // 3) Quote form -> mailto
+  // 3) Hero bubbles parallax (mirrors the original's data-parallax
+  // behaviour; decorative only, disabled for reduced-motion).
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!reduceMotion.matches) {
+    var layers = Array.prototype.map.call(
+      document.querySelectorAll("[data-parallax]"),
+      function (el) {
+        var s = parseFloat(el.getAttribute("data-parallax") || "0.08");
+        return { el: el, strength: Math.min(Math.max(s, 0.04), 0.15) };
+      }
+    );
+    if (layers.length) {
+      var ticking = false;
+      var update = function () {
+        ticking = false;
+        var vh = window.innerHeight;
+        layers.forEach(function (layer) {
+          var r = layer.el.getBoundingClientRect();
+          if (r.bottom < -80 || r.top > vh + 80) return;
+          var offset = r.top + r.height / 2 - vh / 2;
+          layer.el.style.transform =
+            "translate3d(0, " + (-offset * layer.strength).toFixed(1) + "px, 0)";
+        });
+      };
+      var request = function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(update);
+        }
+      };
+      window.addEventListener("scroll", request, { passive: true });
+      window.addEventListener("resize", request, { passive: true });
+      update();
+    }
+  }
+
+  // 4) Quote form -> mailto
   var form = document.getElementById("quote-form");
   if (!form) return;
 

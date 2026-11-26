@@ -104,9 +104,18 @@ carries its own top padding, so the header never covers hero content.
   perfect score; the demo keeps the original's four review cards and
   layout but states the real aggregate (~4.4 stars, ~40 Google reviews)
   with a link to the live listing.
-- **No entrance animation.** The original animates hero content in,
-  which can leave the headline invisible if anything fails. The demo
-  renders all content immediately; nothing depends on animation or JS
-  to be visible.
+- **Hero motion, rebuilt without the library.** The original's landing
+  "video gimmick" is not a video at all — there is no `<video>` element,
+  media file, or embed anywhere on the site. It is a GSAP-driven hero
+  animation: headline words slide up one by one, a copper swash draws
+  itself under "Refuge", and the decorative bubbles drift with
+  parallax on scroll. The demo reproduces all three in pure CSS +
+  vanilla JS (no GSAP, no third-party code), with two safety changes:
+  the animation is CSS-only with visible-by-default content (if the
+  stylesheet or animation never runs, the headline is plain text —
+  the original's invisible-headline failure mode cannot occur), and
+  everything respects `prefers-reduced-motion`. The original's
+  below-fold scroll-reveal system is not replicated; content below
+  the hero is simply visible.
 - **No cookie banner.** The demo sets no cookies, so there is nothing
   to consent to.
