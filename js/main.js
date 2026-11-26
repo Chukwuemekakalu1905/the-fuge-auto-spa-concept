@@ -144,3 +144,16 @@
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
   els.forEach(function (el) { io.observe(el); });
 })();
+
+/* Topic preselect: links with data-topic (e.g. "Sponsor a wash day")
+   set the quote form's Topic select before the visitor lands on it. */
+(function () {
+  var links = document.querySelectorAll("[data-topic]");
+  var topic = document.getElementById("f-topic");
+  if (!links.length || !topic) return;
+  links.forEach(function (a) {
+    a.addEventListener("click", function () {
+      topic.value = a.getAttribute("data-topic");
+    });
+  });
+})();
