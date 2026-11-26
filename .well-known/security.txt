@@ -1,0 +1,8 @@
+Contact: mailto:thefugeautospa@gmail.com
+Expires: 2027-11-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://chukwuemekakalu1905.github.io/the-fuge-auto-spa-concept/.well-known/security.txt
+
+# This is an unsolicited concept redesign demo, not the official
+# The Fuge Auto Spa website. Security reports about the demo itself
+# are welcome at the contact above.
